@@ -12,28 +12,13 @@
     window.addEventListener("ucEvent", function (e) {
         if( e.detail && e.detail.event == "consent_status") {
             // check for consent status of service "Google Analytics"    
-            var ucAnalyticsService = 'Google Analytics';
-            // check for consent status of service "Google Ads Remarketing" 
-            var ucAdService = 'Google Ads Remarketing'; 
+            var ucAnalyticsService = 'My Tracking Service';
 
-            if(e.detail.hasOwnProperty(ucAnalyticsService) && e.detail.hasOwnProperty(ucAdService))
+            if(e.detail.hasOwnProperty(ucAnalyticsService))
             {
                 gtag("consent", "update", {
-                    ad_storage: e.detail[ucAdService] ? 'granted':'denied',
                     analytics_storage: e.detail[ucAnalyticsService] ? 'granted':'denied'
                 });
-            }
-            else {            
-                if(e.detail.hasOwnProperty(ucAdService)) {
-                    gtag("consent", "update", {
-                        ad_storage: e.detail[ucAdService] ? 'granted':'denied'
-                    });
-                }            
-                if(e.detail.hasOwnProperty(ucAnalyticsService)) {
-                  gtag("consent", "update", {
-                        analytics_storage: e.detail[ucAnalyticsService] ? 'granted':'denied'
-                    });
-                }
             }
         }
     });
