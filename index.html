@@ -10,7 +10,7 @@
     <script id="usercentrics-cmp" src="https://app.usercentrics.eu/browser-ui/latest/loader.js" data-settings-id="jO1PyPowe" async></script>
     <script type="text/javascript">
     window.addEventListener("ucEvent", function (e) {
-        console.log('EVENT' =>, e);
+        console.log('EVENT => ', e);
         if( e.detail && e.detail.event == "consent_status") {
             // check for consent status of service "Google Analytics"    
             var ucAnalyticsService = 'My Tracking Service';
